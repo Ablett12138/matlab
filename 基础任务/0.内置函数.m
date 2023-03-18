@@ -29,3 +29,34 @@ function [color] = function1(tu)
     return 
     
 end
+
+function [myzjhist] = function2(img)
+    [width,height,bmgs]=size(img);
+    %获得图像的尺寸:宽度，高度
+    myzjhist= zeros(256,1);
+    %自己定义一个直方图
+    myquzhi=0;
+    %该点图像灰度值
+    for i=1:width
+        %循环处理
+        for j=1:height
+            myquzhi = img(i,j);
+            myzjhist(myquzhi+1,1) = myzjhist(myquzhi+1,1)+1; %该灰度的直方图取值+1
+        end
+    end
+    return 
+end
+
+function [img] = function3(img,num)
+ [width,height,bmsize] = size(img);%第二步，获得图片尺寸
+  for i=1:width
+        for j=1:height
+            if img(i,j)>num
+                img(i,j) =255;
+            else
+                img(i,j) =0;
+            end
+        end
+  end
+return
+end
